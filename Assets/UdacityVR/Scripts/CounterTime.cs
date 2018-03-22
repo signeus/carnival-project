@@ -3,7 +3,7 @@
 public class CounterTime : MonoBehaviour {
 
     [SerializeField]
-    private float timeRemaining = 60 * 3 + 1;
+    private float timeRemaining = 60 * 2 + 1;
 
     private CarnivalScores cs;
 
