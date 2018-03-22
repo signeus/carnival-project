@@ -51,10 +51,18 @@ public class CarnivalWheel : MonoBehaviour {
 
     private void CarnivalNeedle_OnSpokeHit(float points) {
         isWheelSpinning = false;
-        CarnivalScores.Instance.IncrementWheelScore(points);
+        if (!CarnivalScores.Instance.IsOver)
+        {
+            CarnivalScores.Instance.IncrementWheelScore(points);
 
-        ScoreHighlight sh = Instantiate(ScoreHighlighterPrefab, WheelOfFortune.transform.position + WheelOfFortune.transform.forward.normalized *.5f, 
-            Quaternion.LookRotation(-WheelOfFortune.transform.forward));
-        sh.SetPoints(points);
+            ScoreHighlight sh = Instantiate(ScoreHighlighterPrefab, WheelOfFortune.transform.position + WheelOfFortune.transform.forward.normalized * .5f,
+                Quaternion.LookRotation(-WheelOfFortune.transform.forward));
+            sh.SetPoints(points);
+        } else
+        {
+            ScoreHighlight sh = Instantiate(ScoreHighlighterPrefab, WheelOfFortune.transform.position + WheelOfFortune.transform.forward.normalized * .5f,
+                Quaternion.LookRotation(-WheelOfFortune.transform.forward));
+            sh.SetText("Sorry, Time is over.");
+        }
     }
 }

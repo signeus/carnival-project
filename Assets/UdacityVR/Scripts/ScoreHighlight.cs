@@ -34,4 +34,9 @@ public class ScoreHighlight : MonoBehaviour {
         text.text = "+" + points;
     }
 
+    public void SetText(string currentText)
+    {
+        text.text = currentText;
+    }
+
 }

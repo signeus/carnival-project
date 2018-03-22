@@ -16,14 +16,19 @@ public class CarnivalScores : MonoBehaviour {
 	private TextMeshPro wheelScore;
 	[SerializeField]
 	private TextMeshPro coinScore;
+    [SerializeField]
+    private TextMeshPro time;
 
-	public static CarnivalScores Instance;
+    [SerializeField]
+    private bool isOver = false;
+
+    public static CarnivalScores Instance;
 
 	private int plinkoPoints;
 	private int wheelPoints;
 	private int coinPoints;
 
-	void Awake() {
+    void Awake() {
 		if (Instance == null)
 			Instance = this;
 
@@ -57,4 +62,30 @@ public class CarnivalScores : MonoBehaviour {
 	public void IncrementCoinScore() {
 		coinPoints += 1000;
 	}
+
+    public TextMeshPro Time
+    {
+        get
+        {
+            return time;
+        }
+
+        set
+        {
+            time = value;
+        }
+    }
+
+    public bool IsOver
+    {
+        get
+        {
+            return isOver;
+        }
+    }
+
+    public void GameOver()
+    {
+        isOver = true;
+    }
 }

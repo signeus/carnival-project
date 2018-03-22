@@ -91,20 +91,30 @@ public class CarnivalCoinToss : MonoBehaviour {
 	}
 
 	private void OnCoinLanded() {
-		CarnivalScores.Instance.IncrementCoinScore();
-		ScoreHighlight sh = Instantiate(ScoreHighlighterPrefab, transform.position,
-			Quaternion.LookRotation(-transform.right));
-		sh.SetPoints(1000);
+        if (!CarnivalScores.Instance.IsOver)
+        {
+            CarnivalScores.Instance.IncrementCoinScore();
+            ScoreHighlight sh = Instantiate(ScoreHighlighterPrefab, transform.position,
+                Quaternion.LookRotation(-transform.right));
+            sh.SetPoints(1000);
 
-		yay.Play();
+            yay.Play();
+        }
+        else
+        {
+            ScoreHighlight sh = Instantiate(ScoreHighlighterPrefab, transform.position,
+                Quaternion.LookRotation(-transform.right));
+            sh.SetText("Sorry, Time is over.");
+        }
 
-		#if UNITY_EDITOR
-		//TMPro.TextMeshPro text = new GameObject().AddComponent<TMPro.TextMeshPro>();
-		//text.transform.rotation = transform.rotation * Quaternion.Euler(0f, 270f, 0f);
-		//text.transform.position = new Vector3(7.5f, 6f, -2f);
-		//text.text = "OssDist0.7";
-		#endif
-	}
+
+#if UNITY_EDITOR
+        //TMPro.TextMeshPro text = new GameObject().AddComponent<TMPro.TextMeshPro>();
+        //text.transform.rotation = transform.rotation * Quaternion.Euler(0f, 270f, 0f);
+        //text.transform.position = new Vector3(7.5f, 6f, -2f);
+        //text.text = "OssDist0.7";
+#endif
+    }
 
 	private void OnCoinMissed() {
 		ScoreHighlight sh = Instantiate(ScoreHighlighterPrefab, transform.position,

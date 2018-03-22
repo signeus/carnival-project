@@ -48,13 +48,20 @@ public class CarnivalPlinko : MonoBehaviour {
     }
 
     //to be called from the Plinko Coin script
-    public void CoinHitBottom(float points) { 
-        noActiveCoin = true;
-        CarnivalScores.Instance.IncrementPlinkoScore(points);
-        ScoreHighlight sh = Instantiate(ScoreHighlighterPrefab, PlinkoCoinOrigin.transform.position, Quaternion.LookRotation(-PlinkoCoinOrigin.transform.right) );
-        sh.SetPoints(points);
+    public void CoinHitBottom(float points) {
+        if (!CarnivalScores.Instance.IsOver)
+        {
+            noActiveCoin = true;
+            CarnivalScores.Instance.IncrementPlinkoScore(points);
+            ScoreHighlight sh = Instantiate(ScoreHighlighterPrefab, PlinkoCoinOrigin.transform.position, Quaternion.LookRotation(-PlinkoCoinOrigin.transform.right));
+            sh.SetPoints(points);
 
-        Thud.Play();
+            Thud.Play();
+        } else
+        {
+            ScoreHighlight sh = Instantiate(ScoreHighlighterPrefab, PlinkoCoinOrigin.transform.position, Quaternion.LookRotation(-PlinkoCoinOrigin.transform.right));
+            sh.SetText("Sorry, Time is over.");
+        }
     }
 
     public void DropCoin() {
