@@ -21,3 +21,6 @@
 	- Added fireworks behind the tent.
 	- Timer of 2 minutes, when the 2 minutes over you can't give points.
 	- A simple and fast Scene for Menu before entering the Carnival
+	
+- Github
+	- [Signeus / Carnival Project](https://github.com/signeus/carnival-project)
