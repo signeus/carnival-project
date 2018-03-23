@@ -6,5 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/UdacityVR/Scenes/Menu.unity
+    guid: 9e29293b43806794cbd6317acef8bafb
+  - enabled: 1
     path: Assets/UdacityVR/Scenes/Carnival.unity
     guid: 6ee75b0167173ce48a3ca27b0baa8235
