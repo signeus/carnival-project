@@ -12,7 +12,12 @@
 	- GVR Unity SDK: **v1.70.0**
 	- Unity: **2017.2.0f3**
 
-
+- How to init:
+	- Please import the project in Unity
+	- Inside the project, open the Folder UdacityVR/Scenes
+	- Double click in "Menu"
+	- To finish click in the "Play" button of Unity and enjoy it.
+	
 - References:
 	- Fireworks from *Sirhaian'Arts*
 	- Link to [video-tutorial](https://www.youtube.com/watch?v=zj4Iaq-KrkE&t=6s)
